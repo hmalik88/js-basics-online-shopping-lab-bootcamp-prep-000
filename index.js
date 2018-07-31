@@ -55,7 +55,7 @@ for (let i=0; i<cart.length; i++) {
     cart.splice(i, 1);
     return cart;
   }
- if (!itemincart) {
+ if (itemincart === false) {
   return "That item is not in your cart";
 }
 }
