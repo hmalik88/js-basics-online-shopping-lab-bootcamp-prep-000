@@ -50,7 +50,7 @@ function total() {
 function removeFromCart(item) {
   var itemincart = false; 
 for (let i=0; i<cart.length; i++) {
-  if (cart[i].itemName === item) {
+  if (cart[i].itemName.hasOwnProperty(item)) {
     itemincart = true;
     cart.splice(i, 1);
     return cart;
@@ -68,6 +68,6 @@ function placeOrder(cardNumber) {
  else {
    var totalprice = total();
    cart =[];
-   return `Your total cost is $${totalprice}, which will be charged to the card ${cardNumber}.`;
+   return `Your total cost is $${totalprice}, which will be charged to the card ${cardNumber}`;
  }
  }
