@@ -48,14 +48,15 @@ function total() {
 }
 
 function removeFromCart(item) {
+  let cart = getCart();
   var itemincart = false; 
 for (let i=0; i<cart.length; i++) {
-  if (cart[i].itemName.hasOwnProperty(item)) {
+  if (cart[i].hasOwnProperty(item)) {
     itemincart = true;
     cart.splice(i, 1);
     return cart;
   }
- if (itemincart === false) {
+ if (!itemincart) {
   return "That item is not in your cart";
 }
 }
@@ -68,6 +69,6 @@ function placeOrder(cardNumber) {
  else {
    var totalprice = total();
    cart =[];
-   return `Your total cost is $${totalprice}, which will be charged to the card ${cardNumber}`;
+   return `Your total cost is $${totalprice}, which will be charged to the card ${cardNumber}.`;
  }
  }
